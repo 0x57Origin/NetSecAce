@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 1 — What is Cybersecurity? | NetSecAce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-300 min-h-screen">
+
+  <!-- Nav -->
+  <nav class="bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight">
+        <span class="text-cyan-400">Net</span><span class="text-white">Sec</span><span class="text-emerald-400">Ace</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+        <a href="module1.html" class="text-cyan-400 font-semibold">Module 1</a>
+        <a href="module2.html" class="hover:text-white transition">Module 2</a>
+        <a href="module3.html" class="hover:text-white transition">Module 3</a>
+        <a href="module4.html" class="hover:text-white transition">Module 4</a>
+        <a href="module5.html" class="hover:text-emerald-400 transition font-semibold text-emerald-500">Final Exam</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+      <div class="text-xs text-cyan-400 font-semibold mb-2 tracking-widest uppercase">Module 1 of 5</div>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-3">What is Cybersecurity?</h1>
+      <p class="text-slate-400 text-lg mb-6">Learn the foundation of everything — the CIA Triad, key terminology, and how security professionals think.</p>
+      <div class="flex items-center gap-6 text-sm text-slate-500">
+        <span>🔐 4 Lessons</span>
+        <span>📝 12 Quiz Questions</span>
+        <span>⏱ ~20 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-10">
+
+    <!-- Lesson Tabs -->
+    <div class="flex flex-wrap gap-2 mb-8" id="lesson-tabs">
+      <button onclick="showLesson(1)" id="tab-1" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-cyan-500 text-slate-900 transition-all">1. The Big Picture</button>
+      <button onclick="showLesson(2)" id="tab-2" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">2. CIA Triad</button>
+      <button onclick="showLesson(3)" id="tab-3" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">3. Key Terms</button>
+      <button onclick="showLesson(4)" id="tab-4" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">4. Real World Example</button>
+    </div>
+
+    <!-- Lesson 1 -->
+    <div id="lesson-1" class="lesson-content">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 1.1 — The Big Picture</h2>
+
+        <div class="prose prose-invert max-w-none">
+          <p class="text-slate-400 mb-6 text-base leading-relaxed">
+            Cybersecurity is the practice of <span class="text-white font-semibold">protecting systems, networks, and data from digital attacks, damage, or unauthorized access</span>. As more of our lives move online — banking, healthcare, communication, government — the value of what we're protecting grows every day.
+          </p>
+
+          <h3 class="text-white font-bold text-lg mb-3">Who are the attackers?</h3>
+          <div class="grid md:grid-cols-2 gap-3 mb-6">
+            <div class="bg-slate-800 rounded-xl p-4 border border-red-500/20">
+              <div class="text-red-400 font-semibold mb-1">Cybercriminals</div>
+              <div class="text-slate-400 text-sm">Motivated by money — ransomware, fraud, data theft</div>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-4 border border-orange-500/20">
+              <div class="text-orange-400 font-semibold mb-1">Nation-State Actors</div>
+              <div class="text-slate-400 text-sm">Government-sponsored espionage and infrastructure attacks</div>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-4 border border-yellow-500/20">
+              <div class="text-yellow-400 font-semibold mb-1">Insider Threats</div>
+              <div class="text-slate-400 text-sm">Employees, contractors, or partners misusing access</div>
+            </div>
+            <div class="bg-slate-800 rounded-xl p-4 border border-purple-500/20">
+              <div class="text-purple-400 font-semibold mb-1">Hacktivists</div>
+              <div class="text-slate-400 text-sm">Politically motivated attackers (e.g., Anonymous)</div>
+            </div>
+          </div>
+
+          <h3 class="text-white font-bold text-lg mb-3">Three Core Goals of Cybersecurity</h3>
+          <div class="grid md:grid-cols-3 gap-3 mb-6">
+            <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4 text-center">
+              <div class="text-3xl mb-2">🛡️</div>
+              <div class="text-cyan-400 font-bold mb-1">Prevent</div>
+              <div class="text-slate-400 text-sm">Stop attacks before they happen</div>
+            </div>
+            <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4 text-center">
+              <div class="text-3xl mb-2">🔍</div>
+              <div class="text-yellow-400 font-bold mb-1">Detect</div>
+              <div class="text-slate-400 text-sm">Identify attacks when they occur</div>
+            </div>
+            <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4 text-center">
+              <div class="text-3xl mb-2">⚡</div>
+              <div class="text-emerald-400 font-bold mb-1">Respond</div>
+              <div class="text-slate-400 text-sm">React quickly to minimize damage</div>
+            </div>
+          </div>
+
+          <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4">
+            <p class="text-cyan-300 font-semibold text-sm">💡 Key Insight</p>
+            <p class="text-slate-400 text-sm mt-1">No system is 100% secure. The goal of cybersecurity is to make attacks as difficult, costly, and detectable as possible — not to achieve perfection.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end">
+        <button onclick="showLesson(2)" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div id="lesson-2" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 1.2 — The CIA Triad</h2>
+        <p class="text-slate-400 mb-6">The CIA Triad is the <span class="text-white font-semibold">single most important framework</span> in cybersecurity. Every security decision comes back to these three pillars.</p>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+          <div class="bg-slate-800 rounded-2xl p-6 border border-cyan-500/30">
+            <div class="text-4xl mb-3">🔒</div>
+            <h3 class="text-cyan-400 font-bold text-xl mb-2">Confidentiality</h3>
+            <p class="text-slate-400 text-sm mb-4">Only authorized people can access sensitive information.</p>
+            <div class="space-y-2">
+              <div class="text-xs text-slate-500 font-semibold uppercase">Examples</div>
+              <div class="text-sm text-slate-400">• Encryption protecting data</div>
+              <div class="text-sm text-slate-400">• Access controls on files</div>
+              <div class="text-sm text-slate-400">• Password-protected accounts</div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-700">
+              <div class="text-xs text-slate-500 font-semibold uppercase mb-2">Attacks Against It</div>
+              <div class="text-sm text-red-400">• Data breaches</div>
+              <div class="text-sm text-red-400">• Eavesdropping</div>
+              <div class="text-sm text-red-400">• Unauthorized access</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-2xl p-6 border border-yellow-500/30">
+            <div class="text-4xl mb-3">✅</div>
+            <h3 class="text-yellow-400 font-bold text-xl mb-2">Integrity</h3>
+            <p class="text-slate-400 text-sm mb-4">Data is accurate and has not been tampered with by unauthorized parties.</p>
+            <div class="space-y-2">
+              <div class="text-xs text-slate-500 font-semibold uppercase">Examples</div>
+              <div class="text-sm text-slate-400">• File hashing to detect changes</div>
+              <div class="text-sm text-slate-400">• Digital signatures</div>
+              <div class="text-sm text-slate-400">• Audit logs</div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-700">
+              <div class="text-xs text-slate-500 font-semibold uppercase mb-2">Attacks Against It</div>
+              <div class="text-sm text-red-400">• Man-in-the-Middle</div>
+              <div class="text-sm text-red-400">• Data tampering</div>
+              <div class="text-sm text-red-400">• SQL Injection</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-2xl p-6 border border-emerald-500/30">
+            <div class="text-4xl mb-3">⚡</div>
+            <h3 class="text-emerald-400 font-bold text-xl mb-2">Availability</h3>
+            <p class="text-slate-400 text-sm mb-4">Systems and data are accessible to authorized users when they need them.</p>
+            <div class="space-y-2">
+              <div class="text-xs text-slate-500 font-semibold uppercase">Examples</div>
+              <div class="text-sm text-slate-400">• Backups & disaster recovery</div>
+              <div class="text-sm text-slate-400">• Redundant systems</div>
+              <div class="text-sm text-slate-400">• DDoS protection</div>
+            </div>
+            <div class="mt-4 pt-4 border-t border-slate-700">
+              <div class="text-xs text-slate-500 font-semibold uppercase mb-2">Attacks Against It</div>
+              <div class="text-sm text-red-400">• DDoS attacks</div>
+              <div class="text-sm text-red-400">• Ransomware</div>
+              <div class="text-sm text-red-400">• Hardware failure</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 Exam Tip</p>
+          <p class="text-slate-400 text-sm mt-1">On the Security+ exam, scenario questions will describe an attack and ask which CIA pillar was violated. Practice identifying whether an attack affects Confidentiality (who sees it), Integrity (was it changed?), or Availability (can you access it?).</p>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="showLesson(1)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(3)" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div id="lesson-3" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 1.3 — Key Terms Every Beginner Must Know</h2>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-500">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-red-400 font-bold text-lg">Threat</span>
+              <span class="text-slate-600 text-sm">— The source of danger</span>
+            </div>
+            <p class="text-slate-400 text-sm">Anything that has the <strong class="text-white">potential to cause harm</strong>. Could be a hacker, a natural disaster, a disgruntled employee, or even human error.</p>
+            <div class="mt-2 text-xs text-slate-500">Example: A hacker group targeting hospitals, a hurricane, malware</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-yellow-500">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-yellow-400 font-bold text-lg">Vulnerability</span>
+              <span class="text-slate-600 text-sm">— The weakness</span>
+            </div>
+            <p class="text-slate-400 text-sm">A <strong class="text-white">weakness or flaw</strong> in a system, process, or person that could be exploited. Threats exploit vulnerabilities.</p>
+            <div class="mt-2 text-xs text-slate-500">Example: Unpatched software, weak passwords, open ports, untrained employees</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-orange-500">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-orange-400 font-bold text-lg">Risk</span>
+              <span class="text-slate-600 text-sm">— The probability of harm</span>
+            </div>
+            <p class="text-slate-400 text-sm">The <strong class="text-white">potential for loss</strong> when a threat exploits a vulnerability. <code class="bg-slate-700 px-1 rounded text-cyan-400 text-xs">Risk = Threat × Vulnerability</code></p>
+            <div class="mt-2 text-xs text-slate-500">Example: Risk of a breach = hackers exist (threat) × unpatched server (vulnerability)</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-600">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-red-500 font-bold text-lg">Exploit</span>
+              <span class="text-slate-600 text-sm">— The actual attack</span>
+            </div>
+            <p class="text-slate-400 text-sm">The <strong class="text-white">code, technique, or tool</strong> used to take advantage of a vulnerability. A vulnerability exists — an exploit turns it into a real attack.</p>
+            <div class="mt-2 text-xs text-slate-500">Example: EternalBlue exploit used by WannaCry to attack unpatched Windows systems</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-cyan-500">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-cyan-400 font-bold text-lg">Asset</span>
+              <span class="text-slate-600 text-sm">— What we're protecting</span>
+            </div>
+            <p class="text-slate-400 text-sm">Anything of <strong class="text-white">value worth protecting</strong>. This includes data, hardware, software, people, and reputation.</p>
+            <div class="mt-2 text-xs text-slate-500">Example: Customer database, company servers, employee credentials, source code</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-emerald-500">
+            <div class="flex items-center gap-2 mb-1">
+              <span class="text-emerald-400 font-bold text-lg">Control</span>
+              <span class="text-slate-600 text-sm">— The safeguard</span>
+            </div>
+            <p class="text-slate-400 text-sm">Any <strong class="text-white">safeguard, policy, or countermeasure</strong> that reduces risk. Controls can be technical, physical, or administrative.</p>
+            <div class="mt-2 text-xs text-slate-500">Example: Firewall (technical), security guard (physical), password policy (administrative)</div>
+          </div>
+        </div>
+
+        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4">
+          <p class="text-cyan-300 font-semibold text-sm">🔗 How They Connect</p>
+          <p class="text-slate-400 text-sm mt-1">A <span class="text-red-400">threat</span> exploits a <span class="text-yellow-400">vulnerability</span> in an <span class="text-cyan-400">asset</span> to create <span class="text-orange-400">risk</span>. An <span class="text-red-500">exploit</span> is how the attack happens. A <span class="text-emerald-400">control</span> reduces the risk.</p>
+        </div>
+      </div>
+
+      <div class="flex justify-between">
+        <button onclick="showLesson(2)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(4)" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div id="lesson-4" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 1.4 — Real World Example</h2>
+        <p class="text-slate-400 mb-6">Let's apply everything we've learned to a real-world scenario — the 2017 WannaCry ransomware attack.</p>
+
+        <div class="bg-slate-800 rounded-2xl p-6 mb-6 border border-slate-700">
+          <h3 class="text-white font-bold text-lg mb-4">The WannaCry Attack (2017)</h3>
+          <div class="space-y-4">
+            <div class="flex gap-4">
+              <div class="w-24 shrink-0 text-red-400 font-semibold text-sm pt-0.5">Threat</div>
+              <div class="text-slate-400 text-sm">The WannaCry ransomware group, believed to be linked to North Korea (Lazarus Group)</div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-24 shrink-0 text-yellow-400 font-semibold text-sm pt-0.5">Vulnerability</div>
+              <div class="text-slate-400 text-sm">A flaw in Windows SMB protocol — unpatched systems running Windows XP and Windows 7</div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-24 shrink-0 text-red-500 font-semibold text-sm pt-0.5">Exploit</div>
+              <div class="text-slate-400 text-sm">EternalBlue — an NSA exploit leaked by hackers that targeted the SMB vulnerability</div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-24 shrink-0 text-cyan-400 font-semibold text-sm pt-0.5">Assets</div>
+              <div class="text-slate-400 text-sm">Hospital patient records, government files, corporate data across 150+ countries</div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-24 shrink-0 text-orange-400 font-semibold text-sm pt-0.5">Risk</div>
+              <div class="text-slate-400 text-sm">Financial loss, operational disruption, and inability to access critical medical data</div>
+            </div>
+            <div class="flex gap-4">
+              <div class="w-24 shrink-0 text-emerald-400 font-semibold text-sm pt-0.5">Controls</div>
+              <div class="text-slate-400 text-sm">Patching systems (Microsoft released a fix), network segmentation, backups for recovery</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-4">CIA Triad Violation</h3>
+        <div class="grid md:grid-cols-3 gap-3 mb-6">
+          <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
+            <div class="text-red-400 font-bold mb-1">❌ Confidentiality</div>
+            <div class="text-slate-400 text-sm">Some variants exfiltrated data before encrypting it</div>
+          </div>
+          <div class="bg-slate-800 border border-slate-700 rounded-xl p-4 text-center">
+            <div class="text-slate-500 font-bold mb-1">— Integrity</div>
+            <div class="text-slate-500 text-sm">Not the primary target</div>
+          </div>
+          <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 text-center">
+            <div class="text-red-400 font-bold mb-1">❌ Availability</div>
+            <div class="text-slate-400 text-sm">Files encrypted, systems became completely unavailable</div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4">
+          <p class="text-emerald-300 font-semibold text-sm">✅ Lesson Learned</p>
+          <p class="text-slate-400 text-sm mt-1">Patching known vulnerabilities promptly is one of the most effective security controls. WannaCry exploited a vulnerability that Microsoft had already patched — organizations that applied the patch were protected. The lesson: <strong class="text-white">patch your systems.</strong></p>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <button onclick="showLesson(3)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="scrollToQuiz()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Take the Quiz ↓</button>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-12 border-t border-slate-800 relative">
+      <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-950 px-4 text-slate-600 text-sm">Module Quiz</span>
+    </div>
+
+    <!-- Quiz -->
+    <div id="quiz-section">
+      <div id="module1-quiz"></div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800 text-center py-6 text-slate-600 text-sm">
+    <a href="index.html" class="hover:text-slate-400 transition">← Back to Home</a>
+    <span class="mx-3">|</span>
+    <a href="module2.html" class="hover:text-slate-400 transition">Module 2: Networking Basics →</a>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    function showLesson(n) {
+      document.querySelectorAll('.lesson-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-cyan-500', 'text-slate-900');
+        btn.classList.add('bg-slate-800', 'text-slate-400');
+      });
+      document.getElementById('lesson-' + n).classList.remove('hidden');
+      const activeTab = document.getElementById('tab-' + n);
+      activeTab.classList.remove('bg-slate-800', 'text-slate-400');
+      activeTab.classList.add('bg-cyan-500', 'text-slate-900');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function scrollToQuiz() {
+      document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    initQuiz('module1', 'module1-quiz');
+  </script>
+</body>
+</html>

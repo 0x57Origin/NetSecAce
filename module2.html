@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 2 — Networking Basics | NetSecAce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-300 min-h-screen">
+
+  <!-- Nav -->
+  <nav class="bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight">
+        <span class="text-cyan-400">Net</span><span class="text-white">Sec</span><span class="text-emerald-400">Ace</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+        <a href="module1.html" class="hover:text-white transition">Module 1</a>
+        <a href="module2.html" class="text-blue-400 font-semibold">Module 2</a>
+        <a href="module3.html" class="hover:text-white transition">Module 3</a>
+        <a href="module4.html" class="hover:text-white transition">Module 4</a>
+        <a href="module5.html" class="hover:text-emerald-400 transition font-semibold text-emerald-500">Final Exam</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+      <div class="text-xs text-blue-400 font-semibold mb-2 tracking-widest uppercase">Module 2 of 5</div>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Networking Basics</h1>
+      <p class="text-slate-400 text-lg mb-6">Understand how networks work — IP addresses, DNS, ports, protocols, firewalls, and the OSI model. Security lives on networks.</p>
+      <div class="flex items-center gap-6 text-sm text-slate-500">
+        <span>🌐 6 Lessons</span>
+        <span>📝 15 Quiz Questions</span>
+        <span>⏱ ~30 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-10">
+
+    <!-- Lesson Tabs -->
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button onclick="showLesson(1)" id="tab-1" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-blue-500 text-slate-900 transition-all">1. How Networks Work</button>
+      <button onclick="showLesson(2)" id="tab-2" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">2. IP Addresses</button>
+      <button onclick="showLesson(3)" id="tab-3" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">3. DNS</button>
+      <button onclick="showLesson(4)" id="tab-4" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">4. Ports & Protocols</button>
+      <button onclick="showLesson(5)" id="tab-5" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">5. HTTP vs HTTPS</button>
+      <button onclick="showLesson(6)" id="tab-6" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">6. OSI Model</button>
+    </div>
+
+    <!-- Lesson 1 -->
+    <div id="lesson-1" class="lesson-content">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 2.1 — How Networks Work</h2>
+        <p class="text-slate-400 mb-6">A network is simply <span class="text-white font-semibold">two or more devices connected together to share data and resources</span>. Understanding networks is essential for cybersecurity — almost all modern attacks happen over networks.</p>
+
+        <h3 class="text-white font-bold text-lg mb-3">Types of Networks</h3>
+        <div class="grid md:grid-cols-2 gap-3 mb-6">
+          <div class="bg-slate-800 rounded-xl p-4 border border-blue-500/20">
+            <div class="text-blue-400 font-bold mb-1">LAN — Local Area Network</div>
+            <p class="text-slate-400 text-sm">Covers a small area like a home, office, or building. Your home Wi-Fi is a LAN. All devices connect to a router/switch.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-purple-500/20">
+            <div class="text-purple-400 font-bold mb-1">WAN — Wide Area Network</div>
+            <p class="text-slate-400 text-sm">Covers large geographic areas. The internet is the largest WAN. Connects multiple LANs together across cities or countries.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-cyan-500/20">
+            <div class="text-cyan-400 font-bold mb-1">MAN — Metropolitan Area Network</div>
+            <p class="text-slate-400 text-sm">Covers a city or metropolitan area. Often used by ISPs and municipalities.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-emerald-500/20">
+            <div class="text-emerald-400 font-bold mb-1">WLAN — Wireless LAN</div>
+            <p class="text-slate-400 text-sm">A LAN that uses Wi-Fi instead of cables. Introduces additional wireless security considerations.</p>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">Key Network Devices</h3>
+        <div class="space-y-3 mb-6">
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-4">
+            <div class="text-2xl">🔀</div>
+            <div>
+              <div class="text-white font-semibold mb-1">Router</div>
+              <div class="text-slate-400 text-sm">Connects different networks together and directs (routes) traffic between them. Your home router connects your LAN to the internet (WAN). Makes routing decisions based on IP addresses.</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-4">
+            <div class="text-2xl">🔌</div>
+            <div>
+              <div class="text-white font-semibold mb-1">Switch</div>
+              <div class="text-slate-400 text-sm">Connects devices within the same LAN. Forwards data based on MAC addresses (physical hardware addresses). More secure and efficient than older hubs.</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-4">
+            <div class="text-2xl">🔥</div>
+            <div>
+              <div class="text-white font-semibold mb-1">Firewall</div>
+              <div class="text-slate-400 text-sm">Monitors and filters network traffic based on predefined rules. Can be hardware or software. Acts as a gatekeeper between trusted and untrusted networks.</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-4">
+            <div class="text-2xl">📡</div>
+            <div>
+              <div class="text-white font-semibold mb-1">Access Point (AP)</div>
+              <div class="text-slate-400 text-sm">Provides wireless connectivity to a wired network. Creates Wi-Fi coverage. Rogue access points (fake Wi-Fi) are a major security concern.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-blue-500/10 border border-blue-500/30 rounded-xl p-4">
+          <p class="text-blue-300 font-semibold text-sm">💡 Security Insight</p>
+          <p class="text-slate-400 text-sm mt-1">Most cyber attacks travel over networks. Understanding how data flows helps you understand how attacks happen and where to place defenses.</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button onclick="showLesson(2)" class="bg-blue-500 hover:bg-blue-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div id="lesson-2" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 2.2 — IP Addresses</h2>
+        <p class="text-slate-400 mb-6">Every device on a network needs an <span class="text-white font-semibold">IP (Internet Protocol) address</span> — like a home address for data to know where to be delivered.</p>
+
+        <h3 class="text-white font-bold text-lg mb-3">IPv4 vs IPv6</h3>
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-slate-800 rounded-xl p-5">
+            <div class="text-cyan-400 font-bold mb-2">IPv4</div>
+            <div class="font-mono text-emerald-400 text-lg mb-2">192.168.1.1</div>
+            <div class="text-slate-400 text-sm">4 numbers separated by dots, each 0-255. About 4.3 billion addresses — we've run out! Still the most common format.</div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-5">
+            <div class="text-purple-400 font-bold mb-2">IPv6</div>
+            <div class="font-mono text-emerald-400 text-base mb-2">2001:0db8::8a2e:7334</div>
+            <div class="text-slate-400 text-sm">8 groups of hex digits. Practically unlimited addresses. Slowly replacing IPv4 as the internet grows.</div>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">Private vs Public IP Addresses</h3>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-700">
+                <th class="text-left text-slate-400 font-semibold py-2 pr-4">Type</th>
+                <th class="text-left text-slate-400 font-semibold py-2 pr-4">Range</th>
+                <th class="text-left text-slate-400 font-semibold py-2">Used For</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr><td class="text-cyan-400 py-2 pr-4">Private</td><td class="font-mono text-emerald-400 py-2 pr-4">10.0.0.0/8</td><td class="text-slate-400 py-2">Large enterprise networks</td></tr>
+              <tr><td class="text-cyan-400 py-2 pr-4">Private</td><td class="font-mono text-emerald-400 py-2 pr-4">172.16.0.0/12</td><td class="text-slate-400 py-2">Medium networks</td></tr>
+              <tr><td class="text-cyan-400 py-2 pr-4">Private</td><td class="font-mono text-emerald-400 py-2 pr-4">192.168.0.0/16</td><td class="text-slate-400 py-2">Home / small office networks</td></tr>
+              <tr><td class="text-yellow-400 py-2 pr-4">Public</td><td class="text-slate-400 py-2 pr-4">Everything else</td><td class="text-slate-400 py-2">Internet-facing addresses</td></tr>
+              <tr><td class="text-slate-500 py-2 pr-4">Loopback</td><td class="font-mono text-slate-400 py-2 pr-4">127.0.0.1</td><td class="text-slate-400 py-2">"localhost" — your own device</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">DHCP vs Static IP</h3>
+        <div class="grid md:grid-cols-2 gap-3 mb-6">
+          <div class="bg-slate-800 rounded-xl p-4">
+            <div class="text-emerald-400 font-bold mb-2">DHCP (Dynamic)</div>
+            <p class="text-slate-400 text-sm">Server automatically assigns IP addresses. Most home and office devices use this. The IP may change over time.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4">
+            <div class="text-cyan-400 font-bold mb-2">Static IP</div>
+            <p class="text-slate-400 text-sm">Manually configured, never changes. Used for servers, printers, and network devices that need a consistent address.</p>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 Security Note</p>
+          <p class="text-slate-400 text-sm mt-1">IP addresses can be spoofed — attackers can fake their IP to hide their identity or bypass IP-based filtering. IP addresses alone are not reliable for authentication.</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(1)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(3)" class="bg-blue-500 hover:bg-blue-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div id="lesson-3" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 2.3 — DNS (Domain Name System)</h2>
+        <p class="text-slate-400 mb-6">DNS is the <span class="text-white font-semibold">internet's phone book</span>. Humans remember names (google.com), computers use numbers (142.250.80.46). DNS translates between the two.</p>
+
+        <h3 class="text-white font-bold text-lg mb-3">How DNS Works</h3>
+        <div class="bg-slate-800 rounded-xl p-5 mb-6">
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3"><div class="w-7 h-7 bg-cyan-500 rounded-full flex items-center justify-center text-slate-900 font-bold text-sm shrink-0">1</div><div class="text-slate-400 text-sm">You type <span class="font-mono text-emerald-400">google.com</span> in your browser</div></div>
+            <div class="flex items-center gap-3"><div class="w-7 h-7 bg-cyan-500 rounded-full flex items-center justify-center text-slate-900 font-bold text-sm shrink-0">2</div><div class="text-slate-400 text-sm">Your device checks its local DNS cache — is the answer already stored?</div></div>
+            <div class="flex items-center gap-3"><div class="w-7 h-7 bg-cyan-500 rounded-full flex items-center justify-center text-slate-900 font-bold text-sm shrink-0">3</div><div class="text-slate-400 text-sm">If not, it asks the DNS resolver (usually your ISP or Google 8.8.8.8)</div></div>
+            <div class="flex items-center gap-3"><div class="w-7 h-7 bg-cyan-500 rounded-full flex items-center justify-center text-slate-900 font-bold text-sm shrink-0">4</div><div class="text-slate-400 text-sm">The resolver queries root servers → TLD servers → authoritative DNS server</div></div>
+            <div class="flex items-center gap-3"><div class="w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center text-slate-900 font-bold text-sm shrink-0">5</div><div class="text-slate-400 text-sm">The IP address <span class="font-mono text-emerald-400">142.250.80.46</span> is returned and your browser connects</div></div>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">DNS Attacks You Must Know</h3>
+        <div class="space-y-3 mb-6">
+          <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+            <div class="text-red-400 font-bold mb-1">DNS Poisoning (Cache Poisoning)</div>
+            <p class="text-slate-400 text-sm">Attacker injects false DNS records into a resolver's cache. Users get redirected to a malicious IP even when typing a legitimate URL. Used for phishing and malware distribution.</p>
+          </div>
+          <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+            <div class="text-red-400 font-bold mb-1">DNS Hijacking</div>
+            <p class="text-slate-400 text-sm">Attacker takes control of DNS records (often by compromising the domain registrar). All traffic for a domain is redirected to attacker-controlled servers.</p>
+          </div>
+          <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
+            <div class="text-red-400 font-bold mb-1">DNS Tunneling</div>
+            <p class="text-slate-400 text-sm">Attackers encode malicious data in DNS queries to exfiltrate data or communicate with malware. Often bypasses firewalls since DNS traffic is usually allowed.</p>
+          </div>
+        </div>
+
+        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4">
+          <p class="text-cyan-300 font-semibold text-sm">🛡️ Defense: DNSSEC</p>
+          <p class="text-slate-400 text-sm mt-1">DNSSEC (DNS Security Extensions) adds digital signatures to DNS records, allowing resolvers to verify that responses are authentic and haven't been tampered with.</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(2)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(4)" class="bg-blue-500 hover:bg-blue-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div id="lesson-4" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 2.4 — Ports & Protocols</h2>
+        <p class="text-slate-400 mb-6">If an IP address is like a building's address, <span class="text-white font-semibold">ports are the specific doors</span>. Each service runs on a specific port number. You must know these for the exam.</p>
+
+        <h3 class="text-white font-bold text-lg mb-3">Essential Ports — Must Memorize</h3>
+        <div class="overflow-x-auto mb-6">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-700">
+                <th class="text-left text-slate-400 font-semibold py-2 pr-6">Port</th>
+                <th class="text-left text-slate-400 font-semibold py-2 pr-6">Protocol</th>
+                <th class="text-left text-slate-400 font-semibold py-2 pr-6">Purpose</th>
+                <th class="text-left text-slate-400 font-semibold py-2">Security Note</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800">
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">20/21</td><td class="text-white py-2 pr-6">FTP</td><td class="text-slate-400 py-2 pr-6">File Transfer</td><td class="text-red-400 py-2 text-xs">Insecure — use SFTP/FTPS</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">22</td><td class="text-white py-2 pr-6">SSH / SFTP</td><td class="text-slate-400 py-2 pr-6">Encrypted remote access / file transfer</td><td class="text-emerald-400 py-2 text-xs">Secure</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">23</td><td class="text-white py-2 pr-6">Telnet</td><td class="text-slate-400 py-2 pr-6">Remote access (unencrypted)</td><td class="text-red-400 py-2 text-xs">Insecure — use SSH</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">25</td><td class="text-white py-2 pr-6">SMTP</td><td class="text-slate-400 py-2 pr-6">Sending email</td><td class="text-yellow-400 py-2 text-xs">Often exploited for spam</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">53</td><td class="text-white py-2 pr-6">DNS</td><td class="text-slate-400 py-2 pr-6">Domain name resolution</td><td class="text-yellow-400 py-2 text-xs">Tunneling risk</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">80</td><td class="text-white py-2 pr-6">HTTP</td><td class="text-slate-400 py-2 pr-6">Unencrypted web traffic</td><td class="text-red-400 py-2 text-xs">No encryption</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">110</td><td class="text-white py-2 pr-6">POP3</td><td class="text-slate-400 py-2 pr-6">Receiving email</td><td class="text-yellow-400 py-2 text-xs">Use POP3S (995) instead</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">143</td><td class="text-white py-2 pr-6">IMAP</td><td class="text-slate-400 py-2 pr-6">Email access (stays on server)</td><td class="text-yellow-400 py-2 text-xs">Use IMAPS (993) instead</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">443</td><td class="text-white py-2 pr-6">HTTPS</td><td class="text-slate-400 py-2 pr-6">Encrypted web traffic</td><td class="text-emerald-400 py-2 text-xs">Secure with TLS</td></tr>
+              <tr><td class="font-mono text-cyan-400 py-2 pr-6">3389</td><td class="text-white py-2 pr-6">RDP</td><td class="text-slate-400 py-2 pr-6">Windows Remote Desktop</td><td class="text-red-400 py-2 text-xs">Frequently targeted by attackers</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">TCP vs UDP</h3>
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-slate-800 rounded-xl p-4">
+            <div class="text-cyan-400 font-bold mb-2">TCP — Transmission Control Protocol</div>
+            <div class="text-slate-400 text-sm space-y-1">
+              <div>✅ Connection-oriented (handshake first)</div>
+              <div>✅ Reliable — guarantees delivery</div>
+              <div>✅ Ordered — data arrives in sequence</div>
+              <div>⚠️ Slower due to overhead</div>
+              <div class="text-slate-500 mt-2">Used by: HTTP, HTTPS, SSH, FTP, SMTP</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4">
+            <div class="text-purple-400 font-bold mb-2">UDP — User Datagram Protocol</div>
+            <div class="text-slate-400 text-sm space-y-1">
+              <div>⚡ Connectionless — no handshake</div>
+              <div>⚡ Fast — low overhead</div>
+              <div>⚠️ No delivery guarantee</div>
+              <div>⚠️ No ordering guarantee</div>
+              <div class="text-slate-500 mt-2">Used by: DNS, VoIP, video streaming, gaming</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 Exam Tip</p>
+          <p class="text-slate-400 text-sm mt-1">The Security+ exam loves port questions. Make sure you can identify the protocol from the port number and vice versa. Pay special attention to insecure vs. secure versions (e.g., FTP→SFTP, HTTP→HTTPS, Telnet→SSH).</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(3)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(5)" class="bg-blue-500 hover:bg-blue-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 5 -->
+    <div id="lesson-5" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 2.5 — HTTP vs HTTPS</h2>
+        <p class="text-slate-400 mb-6">The difference between HTTP and HTTPS is <span class="text-white font-semibold">encryption</span>. This matters enormously for security.</p>
+
+        <div class="grid md:grid-cols-2 gap-4 mb-6">
+          <div class="bg-red-500/10 border border-red-500/30 rounded-2xl p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-2xl">🔓</span>
+              <span class="text-red-400 font-bold text-xl">HTTP</span>
+            </div>
+            <div class="space-y-2 text-sm text-slate-400">
+              <div>• Port 80</div>
+              <div>• Data sent in <strong class="text-red-400">plain text</strong></div>
+              <div>• Anyone on the network can read it</div>
+              <div>• No identity verification</div>
+              <div>• Susceptible to MitM attacks</div>
+            </div>
+            <div class="mt-4 bg-red-500/10 rounded-lg p-3">
+              <div class="text-red-400 text-xs font-semibold">NEVER use for:</div>
+              <div class="text-slate-400 text-xs mt-1">Login forms, payment info, personal data</div>
+            </div>
+          </div>
+
+          <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="text-2xl">🔒</span>
+              <span class="text-emerald-400 font-bold text-xl">HTTPS</span>
+            </div>
+            <div class="space-y-2 text-sm text-slate-400">
+              <div>• Port 443</div>
+              <div>• Data encrypted with <strong class="text-emerald-400">TLS</strong></div>
+              <div>• Intercepted traffic is unreadable</div>
+              <div>• Server identity verified via certificate</div>
+              <div>• Protects against MitM attacks</div>
+            </div>
+            <div class="mt-4 bg-emerald-500/10 rounded-lg p-3">
+              <div class="text-emerald-400 text-xs font-semibold">Always use for:</div>
+              <div class="text-slate-400 text-xs mt-1">Any website handling sensitive data</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">What is TLS?</h3>
+        <div class="bg-slate-800 rounded-xl p-5 mb-6">
+          <p class="text-slate-400 text-sm mb-3">TLS (Transport Layer Security) is the encryption protocol that makes HTTPS secure. It replaced the older, insecure SSL protocol.</p>
+          <div class="space-y-2 text-sm">
+            <div class="flex gap-2"><span class="text-red-400">❌ SSL</span><span class="text-slate-500">— Deprecated, multiple critical vulnerabilities (POODLE, BEAST, HEARTBLEED)</span></div>
+            <div class="flex gap-2"><span class="text-yellow-400">⚠️ TLS 1.0/1.1</span><span class="text-slate-500">— Old versions, deprecated by most browsers</span></div>
+            <div class="flex gap-2"><span class="text-emerald-400">✅ TLS 1.2</span><span class="text-slate-500">— Widely supported, still acceptable</span></div>
+            <div class="flex gap-2"><span class="text-cyan-400">✅ TLS 1.3</span><span class="text-slate-500">— Current standard, fastest and most secure</span></div>
+          </div>
+        </div>
+
+        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4">
+          <p class="text-cyan-300 font-semibold text-sm">🔍 The Padlock Icon</p>
+          <p class="text-slate-400 text-sm mt-1">The padlock in your browser means the connection is encrypted via TLS. However, it does NOT mean the website itself is trustworthy — phishing sites can also have HTTPS. Always verify the domain name too.</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(4)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(6)" class="bg-blue-500 hover:bg-blue-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 6 -->
+    <div id="lesson-6" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 2.6 — The OSI Model</h2>
+        <p class="text-slate-400 mb-6">The OSI (Open Systems Interconnection) model is a <span class="text-white font-semibold">7-layer framework</span> that describes how data travels through a network. Critical for the Security+ exam.</p>
+
+        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-3 mb-6 text-center">
+          <p class="text-cyan-400 font-bold">Memory Trick (top to bottom):</p>
+          <p class="text-white font-mono text-sm mt-1">"<span class="text-cyan-400">A</span>ll <span class="text-blue-400">P</span>eople <span class="text-purple-400">S</span>eem <span class="text-yellow-400">T</span>o <span class="text-orange-400">N</span>eed <span class="text-red-400">D</span>ata <span class="text-pink-400">P</span>rocessing"</p>
+        </div>
+
+        <div class="space-y-2 mb-6">
+          <div class="bg-slate-800 rounded-xl p-4 flex items-center gap-4">
+            <div class="w-10 h-10 bg-cyan-500/20 rounded-lg flex items-center justify-center text-cyan-400 font-bold shrink-0">7</div>
+            <div class="flex-1">
+              <div class="text-white font-semibold">Application</div>
+              <div class="text-slate-500 text-sm">User-facing network apps — HTTP, HTTPS, FTP, SMTP, DNS</div>
+            </div>
+            <div class="text-xs text-slate-600 hidden md:block">Where users interact</div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex items-center gap-4">
+            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 font-bold shrink-0">6</div>
+            <div class="flex-1">
+              <div class="text-white font-semibold">Presentation</div>
+              <div class="text-slate-500 text-sm">Encryption, compression, data formatting — TLS/SSL, JPEG, ASCII</div>
+            </div>
+            <div class="text-xs text-slate-600 hidden md:block">Data format & encryption</div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex items-center gap-4">
+            <div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 font-bold shrink-0">5</div>
+            <div class="flex-1">
+              <div class="text-white font-semibold">Session</div>
+              <div class="text-slate-500 text-sm">Manages sessions/connections between apps — setup, maintain, teardown</div>
+            </div>
+            <div class="text-xs text-slate-600 hidden md:block">Connection management</div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex items-center gap-4">
+            <div class="w-10 h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center text-yellow-400 font-bold shrink-0">4</div>
+            <div class="flex-1">
+              <div class="text-white font-semibold">Transport</div>
+              <div class="text-slate-500 text-sm">End-to-end delivery, error checking, flow control — TCP, UDP, ports</div>
+            </div>
+            <div class="text-xs text-slate-600 hidden md:block">TCP/UDP & ports</div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex items-center gap-4">
+            <div class="w-10 h-10 bg-orange-500/20 rounded-lg flex items-center justify-center text-orange-400 font-bold shrink-0">3</div>
+            <div class="flex-1">
+              <div class="text-white font-semibold">Network</div>
+              <div class="text-slate-500 text-sm">Logical addressing and routing between networks — IP addresses, routers</div>
+            </div>
+            <div class="text-xs text-slate-600 hidden md:block">IP addresses & routing</div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex items-center gap-4">
+            <div class="w-10 h-10 bg-red-500/20 rounded-lg flex items-center justify-center text-red-400 font-bold shrink-0">2</div>
+            <div class="flex-1">
+              <div class="text-white font-semibold">Data Link</div>
+              <div class="text-slate-500 text-sm">Node-to-node delivery on same network — MAC addresses, switches, ARP</div>
+            </div>
+            <div class="text-xs text-slate-600 hidden md:block">MAC addresses</div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex items-center gap-4">
+            <div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center text-pink-400 font-bold shrink-0">1</div>
+            <div class="flex-1">
+              <div class="text-white font-semibold">Physical</div>
+              <div class="text-slate-500 text-sm">Raw bits over physical medium — cables, Wi-Fi signals, network cards</div>
+            </div>
+            <div class="text-xs text-slate-600 hidden md:block">Physical hardware</div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 Exam Tip</p>
+          <p class="text-slate-400 text-sm mt-1">Know which layer common attacks and security tools operate at. Firewalls → Layer 3-4. IDS/IPS → Layer 3-7. Switches → Layer 2. Encryption (TLS) → Layer 6. VPNs can operate at Layer 2 (L2TP) or Layer 3 (IPSec).</p>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <button onclick="showLesson(5)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="scrollToQuiz()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Take the Quiz ↓</button>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="my-12 border-t border-slate-800 relative">
+      <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-950 px-4 text-slate-600 text-sm">Module Quiz</span>
+    </div>
+
+    <div id="quiz-section">
+      <div id="module2-quiz"></div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-800 text-center py-6 text-slate-600 text-sm">
+    <a href="module1.html" class="hover:text-slate-400 transition">← Module 1</a>
+    <span class="mx-3">|</span>
+    <a href="module3.html" class="hover:text-slate-400 transition">Module 3: Types of Threats →</a>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    function showLesson(n) {
+      document.querySelectorAll('.lesson-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-blue-500', 'text-slate-900');
+        btn.classList.add('bg-slate-800', 'text-slate-400');
+      });
+      document.getElementById('lesson-' + n).classList.remove('hidden');
+      const activeTab = document.getElementById('tab-' + n);
+      activeTab.classList.remove('bg-slate-800', 'text-slate-400');
+      activeTab.classList.add('bg-blue-500', 'text-slate-900');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function scrollToQuiz() {
+      document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+    }
+    initQuiz('module2', 'module2-quiz');
+  </script>
+</body>
+</html>

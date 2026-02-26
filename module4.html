@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 4 — Basic Security Concepts | NetSecAce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-300 min-h-screen">
+
+  <nav class="bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight">
+        <span class="text-cyan-400">Net</span><span class="text-white">Sec</span><span class="text-emerald-400">Ace</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+        <a href="module1.html" class="hover:text-white transition">Module 1</a>
+        <a href="module2.html" class="hover:text-white transition">Module 2</a>
+        <a href="module3.html" class="hover:text-white transition">Module 3</a>
+        <a href="module4.html" class="text-purple-400 font-semibold">Module 4</a>
+        <a href="module5.html" class="hover:text-emerald-400 transition font-semibold text-emerald-500">Final Exam</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+      <div class="text-xs text-purple-400 font-semibold mb-2 tracking-widest uppercase">Module 4 of 5</div>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Basic Security Concepts</h1>
+      <p class="text-slate-400 text-lg mb-6">Authentication, authorization, encryption, hashing, and core security principles. The building blocks of how defenders protect systems.</p>
+      <div class="flex items-center gap-6 text-sm text-slate-500">
+        <span>🛡️ 5 Lessons</span>
+        <span>📝 13 Quiz Questions</span>
+        <span>⏱ ~30 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-10">
+
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button onclick="showLesson(1)" id="tab-1" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-purple-500 text-white transition-all">1. AAA Framework</button>
+      <button onclick="showLesson(2)" id="tab-2" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">2. Auth Factors</button>
+      <button onclick="showLesson(3)" id="tab-3" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">3. Encryption</button>
+      <button onclick="showLesson(4)" id="tab-4" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">4. Core Principles</button>
+      <button onclick="showLesson(5)" id="tab-5" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">5. Access Control</button>
+    </div>
+
+    <!-- Lesson 1 -->
+    <div id="lesson-1" class="lesson-content">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 4.1 — The AAA Framework</h2>
+        <p class="text-slate-400 mb-6">AAA is a fundamental security framework. Every time you log into a system, all three components are at work.</p>
+
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+          <div class="bg-slate-800 rounded-2xl p-6 border border-purple-500/30">
+            <div class="text-4xl mb-3">🪪</div>
+            <h3 class="text-purple-400 font-bold text-xl mb-3">Authentication</h3>
+            <p class="text-slate-400 text-sm mb-4">Proving and verifying <strong class="text-white">who you are</strong>. The system checks your claimed identity against stored credentials.</p>
+            <div class="space-y-1 text-sm text-slate-500">
+              <div>→ Username + password</div>
+              <div>→ Fingerprint scan</div>
+              <div>→ Smart card + PIN</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-2xl p-6 border border-cyan-500/30">
+            <div class="text-4xl mb-3">🔑</div>
+            <h3 class="text-cyan-400 font-bold text-xl mb-3">Authorization</h3>
+            <p class="text-slate-400 text-sm mb-4">Determining <strong class="text-white">what you're allowed to do</strong> after your identity is verified. Happens AFTER authentication.</p>
+            <div class="space-y-1 text-sm text-slate-500">
+              <div>→ Can this user read file X?</div>
+              <div>→ Can this user delete records?</div>
+              <div>→ Can this user access admin panel?</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-2xl p-6 border border-emerald-500/30">
+            <div class="text-4xl mb-3">📋</div>
+            <h3 class="text-emerald-400 font-bold text-xl mb-3">Accounting</h3>
+            <p class="text-slate-400 text-sm mb-4">Tracking and logging <strong class="text-white">what users do</strong> after they're authenticated and authorized. Creates an audit trail.</p>
+            <div class="space-y-1 text-sm text-slate-500">
+              <div>→ Login timestamp</div>
+              <div>→ Files accessed</div>
+              <div>→ Changes made</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">Real-World Example: Corporate Login</h3>
+        <div class="bg-slate-800 rounded-xl p-5 mb-6">
+          <div class="space-y-3 text-sm">
+            <div class="flex gap-3">
+              <span class="text-purple-400 w-32 shrink-0 font-semibold">Authentication</span>
+              <span class="text-slate-400">Sarah enters her username "sarah.jones" and password, then approves an MFA push notification → Identity verified</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-cyan-400 w-32 shrink-0 font-semibold">Authorization</span>
+              <span class="text-slate-400">System checks Sarah's role: "HR Manager" → She can access HR portal but NOT the finance system → Access granted to HR, denied to finance</span>
+            </div>
+            <div class="flex gap-3">
+              <span class="text-emerald-400 w-32 shrink-0 font-semibold">Accounting</span>
+              <span class="text-slate-400">Log entry created: "sarah.jones logged in at 09:14 AM, accessed employee records for John Doe, exported report at 09:32 AM"</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 Common Exam Mistake</p>
+          <p class="text-slate-400 text-sm mt-1">Authentication and Authorization are often confused. Remember: you can be authenticated (logged in) but still not authorized (permitted) to access a specific resource. They are separate steps.</p>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button onclick="showLesson(2)" class="bg-purple-500 hover:bg-purple-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div id="lesson-2" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 4.2 — Authentication Factors</h2>
+        <p class="text-slate-400 mb-6">Authentication factors are the <span class="text-white font-semibold">categories of evidence</span> used to prove identity. The more factors you combine, the stronger the authentication.</p>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-800 rounded-xl p-5 border border-yellow-500/30">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">🧠</span>
+              <div>
+                <div class="text-yellow-400 font-bold text-lg">Something You KNOW</div>
+                <div class="text-slate-500 text-xs">Knowledge factor</div>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">Information stored in memory that only the user should know.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Password</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">PIN</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Passphrase</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Security question</span>
+            </div>
+            <div class="mt-3 text-xs text-red-400">⚠️ Weakest alone — can be guessed, phished, or stolen</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border border-cyan-500/30">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">📱</span>
+              <div>
+                <div class="text-cyan-400 font-bold text-lg">Something You HAVE</div>
+                <div class="text-slate-500 text-xs">Possession factor</div>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">A physical item the user possesses. Attacker would need to physically steal it.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Smartphone (authenticator app)</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Hardware token (YubiKey)</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Smart card</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">One-time password (OTP)</span>
+            </div>
+            <div class="mt-3 text-xs text-yellow-400">⚠️ Can be stolen or lost physically; SIM swap attacks target SMS OTPs</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border border-purple-500/30">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">👁️</span>
+              <div>
+                <div class="text-purple-400 font-bold text-lg">Something You ARE</div>
+                <div class="text-slate-500 text-xs">Inherence factor (biometrics)</div>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">Unique physical or behavioral characteristics. Hardest to fake or steal.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Fingerprint</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Face recognition</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Retina/iris scan</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Voice recognition</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Typing rhythm</span>
+            </div>
+            <div class="mt-3 text-xs text-yellow-400">⚠️ Cannot be changed if compromised; privacy concerns</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border border-emerald-500/30">
+            <div class="flex items-center gap-3 mb-3">
+              <span class="text-3xl">📍</span>
+              <div>
+                <div class="text-emerald-400 font-bold text-lg">Somewhere You ARE</div>
+                <div class="text-slate-500 text-xs">Location factor</div>
+              </div>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">Geographic or network location used as context for authentication.</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">GPS location</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">IP geolocation</span>
+              <span class="bg-slate-700 text-slate-300 text-xs px-2 py-1 rounded">Network (must be on VPN)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-purple-500/10 border border-purple-500/30 rounded-xl p-5 mb-4">
+          <h3 class="text-white font-bold mb-3">MFA — Multi-Factor Authentication</h3>
+          <p class="text-slate-400 text-sm mb-3">Using <strong class="text-white">two or more factors from different categories</strong>. The key: they must be from DIFFERENT categories to count as MFA.</p>
+          <div class="space-y-2 text-sm">
+            <div class="flex gap-2 items-center"><span class="text-emerald-400">✅</span><span class="text-slate-400">Password (know) + Authenticator app (have) = True MFA</span></div>
+            <div class="flex gap-2 items-center"><span class="text-emerald-400">✅</span><span class="text-slate-400">PIN (know) + Fingerprint (are) = True MFA</span></div>
+            <div class="flex gap-2 items-center"><span class="text-red-400">❌</span><span class="text-slate-400">Password + Security question = NOT MFA (both are "something you know")</span></div>
+          </div>
+        </div>
+
+        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4">
+          <p class="text-cyan-300 font-semibold text-sm">💡 Why MFA Matters</p>
+          <p class="text-slate-400 text-sm mt-1">Microsoft reports that MFA blocks 99.9% of account compromise attacks. Even if an attacker steals your password, they cannot log in without the second factor.</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(1)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(3)" class="bg-purple-500 hover:bg-purple-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div id="lesson-3" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 4.3 — Encryption & Hashing</h2>
+        <p class="text-slate-400 mb-6">Encryption and hashing are the core cryptographic tools that protect data. They work differently and serve different purposes.</p>
+
+        <h3 class="text-white font-bold text-xl mb-4">Symmetric Encryption</h3>
+        <div class="bg-slate-800 rounded-xl p-5 mb-4">
+          <div class="flex items-center gap-4 mb-4">
+            <div class="bg-cyan-500/20 rounded-lg p-3 text-center min-w-[80px]">
+              <div class="text-xs text-slate-500 mb-1">Plaintext</div>
+              <div class="font-mono text-cyan-400 text-xs">Hello</div>
+            </div>
+            <div class="flex-1 text-center">
+              <div class="text-slate-500 text-xs mb-1">Same key encrypts & decrypts</div>
+              <div class="text-2xl">🔑→🔑</div>
+            </div>
+            <div class="bg-cyan-500/20 rounded-lg p-3 text-center min-w-[80px]">
+              <div class="text-xs text-slate-500 mb-1">Ciphertext</div>
+              <div class="font-mono text-cyan-400 text-xs">Xk9!pZ</div>
+            </div>
+          </div>
+          <div class="space-y-1 text-sm text-slate-400 mb-3">
+            <div>✅ Fast and efficient for large amounts of data</div>
+            <div>✅ Low computational overhead</div>
+            <div>⚠️ Key distribution problem — how do you share the key securely?</div>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <span class="bg-emerald-500/20 text-emerald-400 text-xs px-2 py-1 rounded font-mono">AES-128/256</span>
+            <span class="bg-yellow-500/20 text-yellow-400 text-xs px-2 py-1 rounded font-mono">3DES</span>
+            <span class="bg-red-500/20 text-red-400 text-xs px-2 py-1 rounded font-mono">DES (weak, broken)</span>
+            <span class="bg-purple-500/20 text-purple-400 text-xs px-2 py-1 rounded font-mono">Blowfish</span>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-xl mb-4">Asymmetric Encryption</h3>
+        <div class="bg-slate-800 rounded-xl p-5 mb-4">
+          <div class="space-y-3 mb-4 text-sm text-slate-400">
+            <p>Uses a <strong class="text-white">key pair</strong>: public key + private key. What one encrypts, only the other can decrypt.</p>
+            <div class="bg-slate-900 rounded-lg p-3">
+              <div class="space-y-2">
+                <div class="flex gap-2">
+                  <span class="text-cyan-400 w-28 shrink-0">Public Key:</span>
+                  <span class="text-slate-400">Share with everyone freely. Used to encrypt data TO you.</span>
+                </div>
+                <div class="flex gap-2">
+                  <span class="text-red-400 w-28 shrink-0">Private Key:</span>
+                  <span class="text-slate-400">Keep secret. Used to decrypt data encrypted with your public key.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-1 text-sm text-slate-400 mb-3">
+            <div>✅ Solves the key distribution problem</div>
+            <div>✅ Enables digital signatures (proves identity)</div>
+            <div>⚠️ Much slower — used for key exchange, not bulk encryption</div>
+          </div>
+          <div class="flex gap-3 flex-wrap">
+            <span class="bg-emerald-500/20 text-emerald-400 text-xs px-2 py-1 rounded font-mono">RSA</span>
+            <span class="bg-cyan-500/20 text-cyan-400 text-xs px-2 py-1 rounded font-mono">ECC (Elliptic Curve)</span>
+            <span class="bg-purple-500/20 text-purple-400 text-xs px-2 py-1 rounded font-mono">Diffie-Hellman</span>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-xl mb-4">Hashing</h3>
+        <div class="bg-slate-800 rounded-xl p-5 mb-6">
+          <p class="text-slate-400 text-sm mb-3">A <strong class="text-white">one-way function</strong> — converts any input into a fixed-length output (hash). Cannot be reversed. Not encryption.</p>
+          <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs mb-3">
+            <div class="text-slate-500">Input: "Password123"</div>
+            <div class="text-emerald-400">SHA-256: ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f</div>
+            <div class="text-slate-500 mt-2">Input: "password123" (lowercase p)</div>
+            <div class="text-emerald-400">SHA-256: ef92b778... (completely different hash)</div>
+          </div>
+          <div class="space-y-1 text-sm text-slate-400 mb-3">
+            <div>• Same input always → same output (deterministic)</div>
+            <div>• One character change → completely different hash (avalanche effect)</div>
+            <div>• Cannot reverse — can't get "Password123" back from the hash</div>
+            <div>• Used to store passwords — compare hashes, not plaintext</div>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-xs">
+              <thead><tr class="border-b border-slate-700"><th class="text-left text-slate-500 py-2 pr-4">Algorithm</th><th class="text-left text-slate-500 py-2 pr-4">Output</th><th class="text-left text-slate-500 py-2">Status</th></tr></thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr><td class="font-mono py-2 pr-4 text-red-400">MD5</td><td class="py-2 pr-4 text-slate-400">128 bits</td><td class="py-2 text-red-400">❌ Broken — don't use</td></tr>
+                <tr><td class="font-mono py-2 pr-4 text-red-400">SHA-1</td><td class="py-2 pr-4 text-slate-400">160 bits</td><td class="py-2 text-red-400">❌ Deprecated</td></tr>
+                <tr><td class="font-mono py-2 pr-4 text-emerald-400">SHA-256</td><td class="py-2 pr-4 text-slate-400">256 bits</td><td class="py-2 text-emerald-400">✅ Secure</td></tr>
+                <tr><td class="font-mono py-2 pr-4 text-emerald-400">SHA-512</td><td class="py-2 pr-4 text-slate-400">512 bits</td><td class="py-2 text-emerald-400">✅ Secure</td></tr>
+                <tr><td class="font-mono py-2 pr-4 text-cyan-400">bcrypt</td><td class="py-2 pr-4 text-slate-400">Variable</td><td class="py-2 text-cyan-400">✅ Best for passwords</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 Salting</p>
+          <p class="text-slate-400 text-sm mt-1">A salt is a random value added to each password before hashing. Even if two users have the same password, their stored hashes are completely different. This defeats rainbow table attacks.</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(2)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(4)" class="bg-purple-500 hover:bg-purple-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div id="lesson-4" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 4.4 — Core Security Principles</h2>
+        <p class="text-slate-400 mb-6">These principles guide how security professionals design and implement defenses. Expect multiple questions about these on the exam.</p>
+
+        <div class="space-y-4 mb-6">
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-purple-500">
+            <div class="text-purple-400 font-bold text-lg mb-2">Least Privilege</div>
+            <p class="text-slate-400 text-sm mb-2">Grant users and systems <strong class="text-white">only the minimum access rights needed</strong> to perform their job — nothing more.</p>
+            <div class="text-xs text-slate-500">Example: A data entry clerk doesn't need administrator access. A contractor doesn't need access to all company files. Limit the blast radius if an account is compromised.</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-cyan-500">
+            <div class="text-cyan-400 font-bold text-lg mb-2">Need to Know</div>
+            <p class="text-slate-400 text-sm mb-2">Access to information is granted only if the <strong class="text-white">job function requires it</strong>, even if the person has the correct security clearance level.</p>
+            <div class="text-xs text-slate-500">Example: An FBI agent with Top Secret clearance still can't access classified nuclear weapon designs unless their assignment requires it.</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-yellow-500">
+            <div class="text-yellow-400 font-bold text-lg mb-2">Separation of Duties</div>
+            <p class="text-slate-400 text-sm mb-2"><strong class="text-white">Split critical tasks between multiple people</strong> so no single person can commit fraud or make errors without another person being involved.</p>
+            <div class="text-xs text-slate-500">Example: Person A creates a payment request → Person B approves it → Person C processes it. One person cannot do all three steps.</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-500">
+            <div class="text-red-400 font-bold text-lg mb-2">Defense in Depth</div>
+            <p class="text-slate-400 text-sm mb-2">Use <strong class="text-white">multiple overlapping layers of security</strong>. If one layer fails, others continue to protect. Never rely on a single control.</p>
+            <div class="bg-slate-900 rounded-lg p-3 mt-2 text-xs text-slate-400">
+              Physical → Firewall → IDS/IPS → Antivirus → Application → Data Encryption → Access Controls
+            </div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-emerald-500">
+            <div class="text-emerald-400 font-bold text-lg mb-2">Zero Trust</div>
+            <p class="text-slate-400 text-sm mb-2">"<strong class="text-white">Never trust, always verify</strong>" — assume every user, device, and connection is potentially hostile, even inside the network perimeter.</p>
+            <div class="text-xs text-slate-500">Traditional model: Trust inside the firewall. Zero Trust: Verify everything, every time, regardless of location. Used by modern cloud architectures.</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-orange-500">
+            <div class="text-orange-400 font-bold text-lg mb-2">Fail Secure (Fail Safe)</div>
+            <p class="text-slate-400 text-sm mb-2">When a system fails, it should default to a <strong class="text-white">secure state</strong> — denying access rather than granting it.</p>
+            <div class="text-xs text-slate-500">Example: If a firewall crashes, it should block ALL traffic (fail secure) rather than allow all traffic (fail open). Exception: physical safety systems (emergency exits should fail open).</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-blue-500">
+            <div class="text-blue-400 font-bold text-lg mb-2">Job Rotation</div>
+            <p class="text-slate-400 text-sm mb-2">Regularly rotating employees through different roles to <strong class="text-white">prevent long-term fraud</strong> and ensure no single person has permanent control over critical functions.</p>
+            <div class="text-xs text-slate-500">Also helps with cross-training and knowledge sharing. Related: mandatory vacation policy — forces someone else to cover, exposing potential fraud.</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(3)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(5)" class="bg-purple-500 hover:bg-purple-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 5 -->
+    <div id="lesson-5" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 4.5 — Access Control Models</h2>
+        <p class="text-slate-400 mb-6">Access control models define <span class="text-white font-semibold">how access to resources is granted and managed</span>. Each model has different use cases.</p>
+
+        <div class="space-y-4 mb-8">
+          <div class="bg-slate-800 rounded-xl p-5 border border-cyan-500/30">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-cyan-400 font-bold text-lg">DAC — Discretionary Access Control</span>
+              <span class="bg-cyan-500/20 text-cyan-400 text-xs px-2 py-1 rounded">Owner-controlled</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">The <strong class="text-white">resource owner decides</strong> who gets access. Most flexible but also most vulnerable if an account is compromised.</p>
+            <div class="text-xs text-slate-500">Example: Windows file permissions — you own a file and can grant read/write/execute to specific users</div>
+            <div class="text-xs text-yellow-400 mt-2">⚠️ Risk: Users can inadvertently share data with unauthorized parties</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border border-red-500/30">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-red-400 font-bold text-lg">MAC — Mandatory Access Control</span>
+              <span class="bg-red-500/20 text-red-400 text-xs px-2 py-1 rounded">System-enforced</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">The <strong class="text-white">system enforces access based on classification labels</strong>. Users cannot change permissions — the security policy is set by the administrator. Most restrictive.</p>
+            <div class="text-xs text-slate-500">Example: Military data classification — Unclassified, Confidential, Secret, Top Secret. A Secret-cleared user cannot access Top Secret data.</div>
+            <div class="text-xs text-emerald-400 mt-2">✅ Strongest model — used in government/military</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border border-emerald-500/30">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-emerald-400 font-bold text-lg">RBAC — Role-Based Access Control</span>
+              <span class="bg-emerald-500/20 text-emerald-400 text-xs px-2 py-1 rounded">Role-controlled</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">Access is granted based on the user's <strong class="text-white">job role</strong>. Assign roles to users; roles have permissions attached. Most common in business environments.</p>
+            <div class="text-xs text-slate-500">Example: "HR Manager" role → access to HR portal. "Developer" role → access to code repos. "Admin" role → access to everything.</div>
+            <div class="text-xs text-cyan-400 mt-2">✅ Easy to manage at scale — update the role, not individual users</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border border-purple-500/30">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-purple-400 font-bold text-lg">ABAC — Attribute-Based Access Control</span>
+              <span class="bg-purple-500/20 text-purple-400 text-xs px-2 py-1 rounded">Attribute-controlled</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-3">Access is granted based on <strong class="text-white">multiple attributes</strong> of the user, resource, and environment. Most granular and flexible.</p>
+            <div class="text-xs text-slate-500">Example: "Grant access IF user's department = HR AND clearance = Secret AND time = business hours AND location = company VPN"</div>
+            <div class="text-xs text-purple-400 mt-2">✅ Most flexible — used in cloud and zero trust environments</div>
+          </div>
+        </div>
+
+        <div class="bg-slate-800 rounded-xl p-5 mb-6">
+          <h3 class="text-white font-semibold mb-3">Quick Comparison</h3>
+          <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+              <thead><tr class="border-b border-slate-700"><th class="text-left text-slate-400 py-2 pr-4">Model</th><th class="text-left text-slate-400 py-2 pr-4">Who Controls?</th><th class="text-left text-slate-400 py-2 pr-4">Used In</th><th class="text-left text-slate-400 py-2">Flexibility</th></tr></thead>
+              <tbody class="divide-y divide-slate-800">
+                <tr><td class="text-cyan-400 py-2 pr-4">DAC</td><td class="text-slate-400 py-2 pr-4">Data owner</td><td class="text-slate-400 py-2 pr-4">Windows, home users</td><td class="text-emerald-400 py-2">High</td></tr>
+                <tr><td class="text-red-400 py-2 pr-4">MAC</td><td class="text-slate-400 py-2 pr-4">System/admin</td><td class="text-slate-400 py-2 pr-4">Military, government</td><td class="text-red-400 py-2">Low</td></tr>
+                <tr><td class="text-emerald-400 py-2 pr-4">RBAC</td><td class="text-slate-400 py-2 pr-4">Role assignment</td><td class="text-slate-400 py-2 pr-4">Most businesses</td><td class="text-yellow-400 py-2">Medium</td></tr>
+                <tr><td class="text-purple-400 py-2 pr-4">ABAC</td><td class="text-slate-400 py-2 pr-4">Policy engine</td><td class="text-slate-400 py-2 pr-4">Cloud, zero trust</td><td class="text-emerald-400 py-2">Very High</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <button onclick="showLesson(4)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="scrollToQuiz()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Take the Quiz ↓</button>
+      </div>
+    </div>
+
+    <div class="my-12 border-t border-slate-800 relative">
+      <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-950 px-4 text-slate-600 text-sm">Module Quiz</span>
+    </div>
+
+    <div id="quiz-section">
+      <div id="module4-quiz"></div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-800 text-center py-6 text-slate-600 text-sm">
+    <a href="module3.html" class="hover:text-slate-400 transition">← Module 3</a>
+    <span class="mx-3">|</span>
+    <a href="module5.html" class="hover:text-slate-400 transition">Module 5: Final Exam →</a>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    function showLesson(n) {
+      document.querySelectorAll('.lesson-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-purple-500', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-400');
+      });
+      document.getElementById('lesson-' + n).classList.remove('hidden');
+      const activeTab = document.getElementById('tab-' + n);
+      activeTab.classList.remove('bg-slate-800', 'text-slate-400');
+      activeTab.classList.add('bg-purple-500', 'text-white');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function scrollToQuiz() {
+      document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+    }
+    initQuiz('module4', 'module4-quiz');
+  </script>
+</body>
+</html>

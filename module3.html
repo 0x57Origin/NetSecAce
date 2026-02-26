@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 3 — Types of Threats | NetSecAce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-300 min-h-screen">
+
+  <nav class="bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight">
+        <span class="text-cyan-400">Net</span><span class="text-white">Sec</span><span class="text-emerald-400">Ace</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+        <a href="module1.html" class="hover:text-white transition">Module 1</a>
+        <a href="module2.html" class="hover:text-white transition">Module 2</a>
+        <a href="module3.html" class="text-red-400 font-semibold">Module 3</a>
+        <a href="module4.html" class="hover:text-white transition">Module 4</a>
+        <a href="module5.html" class="hover:text-emerald-400 transition font-semibold text-emerald-500">Final Exam</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+      <div class="text-xs text-red-400 font-semibold mb-2 tracking-widest uppercase">Module 3 of 5</div>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Types of Threats & Attacks</h1>
+      <p class="text-slate-400 text-lg mb-6">Know your enemy — malware, social engineering, phishing, password attacks, and application vulnerabilities.</p>
+      <div class="flex items-center gap-6 text-sm text-slate-500">
+        <span>☠️ 5 Lessons</span>
+        <span>📝 15 Quiz Questions</span>
+        <span>⏱ ~35 min</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-10">
+
+    <div class="flex flex-wrap gap-2 mb-8">
+      <button onclick="showLesson(1)" id="tab-1" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-red-500 text-white transition-all">1. Malware Types</button>
+      <button onclick="showLesson(2)" id="tab-2" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">2. Social Engineering</button>
+      <button onclick="showLesson(3)" id="tab-3" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">3. Password Attacks</button>
+      <button onclick="showLesson(4)" id="tab-4" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">4. Network Attacks</button>
+      <button onclick="showLesson(5)" id="tab-5" class="tab-btn px-4 py-2 rounded-lg text-sm font-medium bg-slate-800 text-slate-400 hover:text-white transition-all">5. Application Attacks</button>
+    </div>
+
+    <!-- Lesson 1 -->
+    <div id="lesson-1" class="lesson-content">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 3.1 — Malware Types</h2>
+        <p class="text-slate-400 mb-6"><span class="text-white font-semibold">Malware</span> (malicious software) is any software intentionally designed to cause harm. You must know every type for the exam.</p>
+
+        <div class="space-y-3 mb-6">
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-500">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-red-400 font-bold text-lg">Virus</span>
+              <span class="bg-red-500/20 text-red-400 text-xs px-2 py-0.5 rounded-full">Attaches to files</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">A piece of code that <strong class="text-white">attaches itself to legitimate files and spreads when those files are opened</strong>. Requires user action to spread.</p>
+            <div class="text-xs text-slate-500">Real example: ILOVEYOU (2000) — spread via email attachment, infected 10+ million computers</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-orange-500">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-orange-400 font-bold text-lg">Worm</span>
+              <span class="bg-orange-500/20 text-orange-400 text-xs px-2 py-0.5 rounded-full">Self-replicates</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">Spreads across networks <strong class="text-white">automatically without any user action</strong>. Exploits network vulnerabilities to copy itself to other systems.</p>
+            <div class="text-xs text-slate-500">Real example: WannaCry (2017) — used EternalBlue exploit to spread to 200,000+ computers in 150 countries</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-yellow-500">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-yellow-400 font-bold text-lg">Trojan (Trojan Horse)</span>
+              <span class="bg-yellow-500/20 text-yellow-400 text-xs px-2 py-0.5 rounded-full">Disguised as legit software</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">Disguises itself as legitimate, useful software to trick users into installing it. <strong class="text-white">Does not replicate</strong> — relies on social engineering.</p>
+            <div class="text-xs text-slate-500">Real example: Fake antivirus programs, cracked software downloads containing malware</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-600">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-red-500 font-bold text-lg">Ransomware</span>
+              <span class="bg-red-600/20 text-red-500 text-xs px-2 py-0.5 rounded-full">Encrypts files</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">Encrypts the victim's files and demands payment (usually cryptocurrency) for the decryption key. <strong class="text-white">Attacks availability and potentially confidentiality</strong>.</p>
+            <div class="text-xs text-slate-500">Real example: LockBit, REvil, WannaCry — have caused billions in damages to hospitals, governments, and businesses</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-purple-500">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-purple-400 font-bold text-lg">Spyware</span>
+              <span class="bg-purple-500/20 text-purple-400 text-xs px-2 py-0.5 rounded-full">Silent monitoring</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">Silently monitors user activity and <strong class="text-white">steals sensitive information</strong> like keystrokes, passwords, screenshots, and browsing history.</p>
+            <div class="text-xs text-slate-500">Includes keyloggers — records everything you type. Used in financial fraud and corporate espionage.</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-blue-500">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-blue-400 font-bold text-lg">Rootkit</span>
+              <span class="bg-blue-500/20 text-blue-400 text-xs px-2 py-0.5 rounded-full">Hides deep in OS</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">Embeds itself deep in the operating system (often at kernel level) to <strong class="text-white">conceal its presence and maintain persistent stealthy access</strong>. Very hard to detect and remove.</p>
+            <div class="text-xs text-slate-500">Often requires a complete OS reinstall to remove. Hides other malware from antivirus tools.</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-cyan-500">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-cyan-400 font-bold text-lg">Botnet</span>
+              <span class="bg-cyan-500/20 text-cyan-400 text-xs px-2 py-0.5 rounded-full">Network of infected devices</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">A network of compromised devices (bots) <strong class="text-white">controlled remotely by an attacker (botmaster)</strong> without the owners' knowledge. Used for DDoS attacks, spam, and crypto mining.</p>
+            <div class="text-xs text-slate-500">Real example: Mirai botnet (2016) — infected 600,000+ IoT devices, launched massive DDoS attacks</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-slate-500">
+            <div class="flex items-start justify-between mb-2">
+              <span class="text-slate-300 font-bold text-lg">Adware</span>
+              <span class="bg-slate-500/20 text-slate-400 text-xs px-2 py-0.5 rounded-full">Unwanted ads</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-2">Displays unwanted advertisements. Often bundled with free software. Usually <strong class="text-white">not directly harmful but privacy-invasive</strong> — can slow systems and redirect browsers.</p>
+            <div class="text-xs text-slate-500">Example: Browser toolbars, pop-up ad generators, search engine hijackers</div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 Quick Reference Table</p>
+          <div class="mt-2 grid grid-cols-3 gap-2 text-xs">
+            <div class="text-slate-500 font-semibold">Type</div><div class="text-slate-500 font-semibold">Spreads How?</div><div class="text-slate-500 font-semibold">Main Goal</div>
+            <div class="text-red-400">Virus</div><div class="text-slate-400">File attachment, user action</div><div class="text-slate-400">Damage/spread</div>
+            <div class="text-orange-400">Worm</div><div class="text-slate-400">Network, auto</div><div class="text-slate-400">Self-replicate</div>
+            <div class="text-yellow-400">Trojan</div><div class="text-slate-400">Social engineering</div><div class="text-slate-400">Backdoor access</div>
+            <div class="text-red-500">Ransomware</div><div class="text-slate-400">Various</div><div class="text-slate-400">Extortion</div>
+            <div class="text-purple-400">Spyware</div><div class="text-slate-400">Drive-by, bundles</div><div class="text-slate-400">Steal data</div>
+            <div class="text-blue-400">Rootkit</div><div class="text-slate-400">Via other malware</div><div class="text-slate-400">Persistence/hide</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-end">
+        <button onclick="showLesson(2)" class="bg-red-500 hover:bg-red-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 2 -->
+    <div id="lesson-2" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 3.2 — Social Engineering</h2>
+        <p class="text-slate-400 mb-2">Social engineering attacks <span class="text-white font-semibold">manipulate human psychology</span> rather than exploiting technical vulnerabilities.</p>
+        <p class="text-slate-400 mb-6">Humans are consistently the weakest link in security. No firewall can stop an employee from being tricked.</p>
+
+        <h3 class="text-white font-bold text-lg mb-3">Phishing Variants</h3>
+        <div class="grid md:grid-cols-2 gap-3 mb-6">
+          <div class="bg-slate-800 rounded-xl p-4 border border-red-500/20">
+            <div class="text-red-400 font-bold mb-1">Phishing</div>
+            <p class="text-slate-400 text-sm">Mass emails pretending to be a trusted source (bank, Netflix, Amazon). Casts a wide net — even a 1% success rate yields thousands of victims.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-orange-500/20">
+            <div class="text-orange-400 font-bold mb-1">Spear Phishing</div>
+            <p class="text-slate-400 text-sm">Targeted phishing against a specific individual. Attacker researches the victim — uses their name, job title, colleague names. Much more convincing.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-yellow-500/20">
+            <div class="text-yellow-400 font-bold mb-1">Whaling</div>
+            <p class="text-slate-400 text-sm">Spear phishing targeting high-value individuals — CEOs, CFOs, board members. "Going after the big fish." Often involves fake wire transfer requests.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-purple-500/20">
+            <div class="text-purple-400 font-bold mb-1">Vishing</div>
+            <p class="text-slate-400 text-sm">Voice phishing — phone calls. Attacker impersonates bank, IRS, or tech support. Uses caller ID spoofing to appear legitimate.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-blue-500/20">
+            <div class="text-blue-400 font-bold mb-1">Smishing</div>
+            <p class="text-slate-400 text-sm">SMS phishing — text messages. "Your package delivery failed, click here." Or fake bank fraud alerts with malicious links.</p>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 border border-cyan-500/20">
+            <div class="text-cyan-400 font-bold mb-1">Pharming</div>
+            <p class="text-slate-400 text-sm">Redirects users to a fake website even when they type the correct URL. Often done via DNS poisoning or hosts file modification.</p>
+          </div>
+        </div>
+
+        <h3 class="text-white font-bold text-lg mb-3">Other Social Engineering Techniques</h3>
+        <div class="space-y-3 mb-6">
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-3">
+            <span class="text-2xl">🎭</span>
+            <div>
+              <div class="text-white font-semibold mb-1">Pretexting</div>
+              <div class="text-slate-400 text-sm">Creating a fabricated scenario to manipulate a victim. "Hi, I'm Bob from IT — we need to verify your credentials due to a security incident."</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-3">
+            <span class="text-2xl">💾</span>
+            <div>
+              <div class="text-white font-semibold mb-1">Baiting</div>
+              <div class="text-slate-400 text-sm">Exploiting curiosity. Leaving infected USB drives labeled "Payroll 2024" in parking lots or lobby areas, waiting for someone to plug it in.</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-3">
+            <span class="text-2xl">🚪</span>
+            <div>
+              <div class="text-white font-semibold mb-1">Tailgating / Piggybacking</div>
+              <div class="text-slate-400 text-sm">Physically following an authorized person through a secure door without using credentials. "Oh hold on, my hands are full — thanks!" Counter: mantrap/security guard.</div>
+            </div>
+          </div>
+          <div class="bg-slate-800 rounded-xl p-4 flex gap-3">
+            <span class="text-2xl">🎁</span>
+            <div>
+              <div class="text-white font-semibold mb-1">Quid Pro Quo</div>
+              <div class="text-slate-400 text-sm">Offering something in exchange for information. "I'll give you a free security scan — just give me your login so I can run it."</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-xl p-4">
+          <p class="text-emerald-300 font-semibold text-sm">🛡️ Defense</p>
+          <p class="text-slate-400 text-sm mt-1">Security awareness training is the primary defense against social engineering. Users should learn to: verify requests through official channels, be skeptical of urgency, never share credentials verbally, and report suspicious contacts.</p>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(1)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(3)" class="bg-red-500 hover:bg-red-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 3 -->
+    <div id="lesson-3" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 3.3 — Password Attacks</h2>
+        <p class="text-slate-400 mb-6">Passwords are the most common authentication method — and the most frequently attacked. Know every method.</p>
+
+        <div class="space-y-4 mb-6">
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-500">
+            <div class="text-red-400 font-bold text-lg mb-2">Brute Force Attack</div>
+            <p class="text-slate-400 text-sm mb-2">Systematically tries <strong class="text-white">every possible combination</strong> of characters until the correct password is found. Time-consuming but guaranteed to work eventually.</p>
+            <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs text-emerald-400">
+              aaa → aab → aac → ... → zzz → aaa1 → ...
+            </div>
+            <div class="mt-2 text-xs text-slate-500">Defense: Strong passwords, account lockout policies, MFA</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-orange-500">
+            <div class="text-orange-400 font-bold text-lg mb-2">Dictionary Attack</div>
+            <p class="text-slate-400 text-sm mb-2">Uses a pre-built list of <strong class="text-white">common words, passwords, and phrases</strong> to guess credentials. Much faster than brute force.</p>
+            <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs text-slate-400">
+              password → password1 → 123456 → qwerty → letmein → ...
+            </div>
+            <div class="mt-2 text-xs text-slate-500">Defense: Passphrases, avoiding common words, password managers</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-yellow-500">
+            <div class="text-yellow-400 font-bold text-lg mb-2">Credential Stuffing</div>
+            <p class="text-slate-400 text-sm mb-2">Uses <strong class="text-white">username/password pairs leaked from previous data breaches</strong> to attempt logins on other websites. Works because users reuse passwords.</p>
+            <div class="text-xs text-slate-500 mt-2">Defense: Unique passwords for every account (use a password manager!), MFA</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-cyan-500">
+            <div class="text-cyan-400 font-bold text-lg mb-2">Password Spraying</div>
+            <p class="text-slate-400 text-sm mb-2">Tries <strong class="text-white">one or a few common passwords against many accounts</strong> to avoid lockouts. Slower but stealthy — avoids triggering account lockout policies.</p>
+            <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs text-slate-400">
+              user1:Password123! → user2:Password123! → user3:Password123! → ...
+            </div>
+            <div class="mt-2 text-xs text-slate-500">Defense: MFA, monitoring for widespread failed login attempts</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-purple-500">
+            <div class="text-purple-400 font-bold text-lg mb-2">Rainbow Table Attack</div>
+            <p class="text-slate-400 text-sm mb-2">Uses <strong class="text-white">precomputed tables of hash values</strong> to reverse hashed passwords. Attacker steals the hashed password database, then looks up the hash in the table.</p>
+            <div class="text-xs text-slate-500 mt-2">Defense: Salting passwords — adds a unique random value before hashing, defeating precomputed tables</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-slate-500">
+            <div class="text-slate-300 font-bold text-lg mb-2">Keylogger</div>
+            <p class="text-slate-400 text-sm mb-2">Software or hardware that <strong class="text-white">records every keystroke</strong> typed by the victim. Captures passwords, credit card numbers, and messages.</p>
+            <div class="text-xs text-slate-500 mt-2">Defense: Anti-malware software, virtual keyboards, hardware security keys</div>
+          </div>
+        </div>
+
+        <div class="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-4">
+          <p class="text-cyan-300 font-semibold text-sm">💡 Password Best Practices</p>
+          <div class="mt-2 space-y-1 text-sm text-slate-400">
+            <div>✅ Use a <strong class="text-white">password manager</strong> — unique strong password for every account</div>
+            <div>✅ Enable <strong class="text-white">MFA</strong> everywhere — even a stolen password won't work</div>
+            <div>✅ Use <strong class="text-white">passphrases</strong> — "correct-horse-battery-staple" is stronger than "P@$$w0rd"</div>
+            <div>✅ At least <strong class="text-white">12-16 characters</strong> with mixed types</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(2)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(4)" class="bg-red-500 hover:bg-red-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 4 -->
+    <div id="lesson-4" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 3.4 — Network Attacks</h2>
+
+        <div class="space-y-4 mb-6">
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-500">
+            <div class="text-red-400 font-bold text-lg mb-2">Man-in-the-Middle (MitM)</div>
+            <p class="text-slate-400 text-sm mb-2">Attacker secretly positions themselves between two communicating parties, <strong class="text-white">intercepting and potentially modifying data</strong> without either party knowing.</p>
+            <div class="text-xs text-slate-500">Real scenario: On a coffee shop Wi-Fi, attacker intercepts your unencrypted HTTP traffic. Defense: HTTPS, VPN</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-orange-500">
+            <div class="text-orange-400 font-bold text-lg mb-2">DDoS — Distributed Denial of Service</div>
+            <p class="text-slate-400 text-sm mb-2">Floods a target server with massive traffic from <strong class="text-white">thousands of compromised devices (botnet)</strong>, overwhelming it until it crashes and becomes unavailable.</p>
+            <div class="text-xs text-slate-500">Attacks Availability. Defense: CDNs, rate limiting, anti-DDoS services (Cloudflare)</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-yellow-500">
+            <div class="text-yellow-400 font-bold text-lg mb-2">Packet Sniffing</div>
+            <p class="text-slate-400 text-sm mb-2">Capturing and reading network traffic data. On unencrypted networks, <strong class="text-white">everything can be read in plain text</strong> — passwords, emails, data.</p>
+            <div class="text-xs text-slate-500">Defense: Encrypt all traffic (HTTPS, TLS, VPN), avoid public Wi-Fi for sensitive activities</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-cyan-500">
+            <div class="text-cyan-400 font-bold text-lg mb-2">Spoofing</div>
+            <p class="text-slate-400 text-sm mb-2">Faking identity to gain trust or bypass controls.</p>
+            <div class="space-y-1 text-sm text-slate-400 mt-2">
+              <div>• <strong class="text-white">IP Spoofing</strong> — fake source IP address</div>
+              <div>• <strong class="text-white">MAC Spoofing</strong> — fake hardware address</div>
+              <div>• <strong class="text-white">Email Spoofing</strong> — fake sender address (phishing)</div>
+              <div>• <strong class="text-white">Caller ID Spoofing</strong> — fake phone number (vishing)</div>
+            </div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-purple-500">
+            <div class="text-purple-400 font-bold text-lg mb-2">Replay Attack</div>
+            <p class="text-slate-400 text-sm mb-2">Attacker <strong class="text-white">captures a valid authentication transmission and re-sends it</strong> to gain unauthorized access. Like recording your keycard beep and playing it back later.</p>
+            <div class="text-xs text-slate-500">Defense: Timestamps, session tokens, nonces (numbers used once) in authentication protocols</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-emerald-500">
+            <div class="text-emerald-400 font-bold text-lg mb-2">ARP Poisoning</div>
+            <p class="text-slate-400 text-sm mb-2">Sends fake ARP (Address Resolution Protocol) replies to associate the attacker's MAC address with a legitimate IP. Redirects network traffic through the attacker (enables MitM).</p>
+            <div class="text-xs text-slate-500">Defense: Dynamic ARP Inspection (DAI), static ARP entries for critical systems</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between">
+        <button onclick="showLesson(3)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="showLesson(5)" class="bg-red-500 hover:bg-red-400 text-white font-bold px-6 py-2.5 rounded-xl transition-all">Next Lesson →</button>
+      </div>
+    </div>
+
+    <!-- Lesson 5 -->
+    <div id="lesson-5" class="lesson-content hidden">
+      <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 mb-6">
+        <h2 class="text-2xl font-bold text-white mb-4">Lesson 3.5 — Application Attacks</h2>
+
+        <div class="space-y-4 mb-6">
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-red-500">
+            <div class="text-red-400 font-bold text-lg mb-2">SQL Injection</div>
+            <p class="text-slate-400 text-sm mb-3">Inserts malicious SQL code into input fields to <strong class="text-white">manipulate the backend database</strong>. Can bypass authentication, extract all data, or delete the entire database.</p>
+            <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs">
+              <div class="text-slate-500">Login form: Username field</div>
+              <div class="text-red-400">admin' OR '1'='1</div>
+              <div class="text-slate-500 mt-1">Query becomes: SELECT * FROM users WHERE username='admin' OR '1'='1'</div>
+              <div class="text-emerald-400">-- Always true! Bypass login.</div>
+            </div>
+            <div class="mt-2 text-xs text-slate-500">Defense: Parameterized queries, input validation, least privilege database accounts</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-orange-500">
+            <div class="text-orange-400 font-bold text-lg mb-2">XSS — Cross-Site Scripting</div>
+            <p class="text-slate-400 text-sm mb-2">Injects malicious scripts into web pages that are then <strong class="text-white">executed by other users' browsers</strong>. Can steal session cookies, redirect users, or deface websites.</p>
+            <div class="text-xs text-slate-500">Defense: Input sanitization, Content Security Policy (CSP), output encoding, HttpOnly cookies</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-yellow-500">
+            <div class="text-yellow-400 font-bold text-lg mb-2">Zero-Day Attack</div>
+            <p class="text-slate-400 text-sm mb-2">Exploits a vulnerability that <strong class="text-white">the software vendor doesn't know about yet</strong> — zero days of warning or patching time. Extremely dangerous because no patch exists.</p>
+            <div class="text-xs text-slate-500">Defense: Defense in depth, behavioral monitoring, prompt patching of known vulnerabilities</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-purple-500">
+            <div class="text-purple-400 font-bold text-lg mb-2">Buffer Overflow</div>
+            <p class="text-slate-400 text-sm mb-2">Sends more data than a program's buffer can hold, <strong class="text-white">overwriting adjacent memory</strong>. Can crash programs or allow attackers to execute arbitrary code.</p>
+            <div class="text-xs text-slate-500">Defense: Input validation, memory-safe programming languages, ASLR (Address Space Layout Randomization)</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-cyan-500">
+            <div class="text-cyan-400 font-bold text-lg mb-2">CSRF — Cross-Site Request Forgery</div>
+            <p class="text-slate-400 text-sm mb-2">Tricks an authenticated user's browser into <strong class="text-white">sending unauthorized requests</strong> to a website they're logged into. Example: visit a malicious page that secretly transfers money from your bank.</p>
+            <div class="text-xs text-slate-500">Defense: CSRF tokens, SameSite cookies, verifying request origin headers</div>
+          </div>
+
+          <div class="bg-slate-800 rounded-xl p-5 border-l-4 border-emerald-500">
+            <div class="text-emerald-400 font-bold text-lg mb-2">Directory Traversal</div>
+            <p class="text-slate-400 text-sm mb-2">Manipulates file path inputs to <strong class="text-white">access files outside the intended directory</strong>. Can expose system files, configuration files, or other sensitive data.</p>
+            <div class="bg-slate-900 rounded-lg p-3 font-mono text-xs text-red-400 mt-2">
+              ../../etc/passwd
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-yellow-500/10 border border-yellow-500/30 rounded-xl p-4">
+          <p class="text-yellow-300 font-semibold text-sm">📌 OWASP Top 10</p>
+          <p class="text-slate-400 text-sm mt-1">The OWASP (Open Web Application Security Project) Top 10 is the definitive list of the most critical web application security risks. SQL Injection, XSS, and broken authentication regularly appear on this list. Bookmark owasp.org for reference.</p>
+        </div>
+      </div>
+      <div class="flex justify-between items-center">
+        <button onclick="showLesson(4)" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-6 py-2.5 rounded-xl transition-all">← Previous</button>
+        <button onclick="scrollToQuiz()" class="bg-emerald-500 hover:bg-emerald-400 text-slate-900 font-bold px-6 py-2.5 rounded-xl transition-all">Take the Quiz ↓</button>
+      </div>
+    </div>
+
+    <div class="my-12 border-t border-slate-800 relative">
+      <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-950 px-4 text-slate-600 text-sm">Module Quiz</span>
+    </div>
+
+    <div id="quiz-section">
+      <div id="module3-quiz"></div>
+    </div>
+  </div>
+
+  <footer class="border-t border-slate-800 text-center py-6 text-slate-600 text-sm">
+    <a href="module2.html" class="hover:text-slate-400 transition">← Module 2</a>
+    <span class="mx-3">|</span>
+    <a href="module4.html" class="hover:text-slate-400 transition">Module 4: Basic Security Concepts →</a>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    function showLesson(n) {
+      document.querySelectorAll('.lesson-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-red-500', 'text-white');
+        btn.classList.add('bg-slate-800', 'text-slate-400');
+      });
+      document.getElementById('lesson-' + n).classList.remove('hidden');
+      const activeTab = document.getElementById('tab-' + n);
+      activeTab.classList.remove('bg-slate-800', 'text-slate-400');
+      activeTab.classList.add('bg-red-500', 'text-white');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function scrollToQuiz() {
+      document.getElementById('quiz-section').scrollIntoView({ behavior: 'smooth' });
+    }
+    initQuiz('module3', 'module3-quiz');
+  </script>
+</body>
+</html>

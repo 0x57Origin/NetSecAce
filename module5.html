@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Module 5 — Beginner Final Exam | NetSecAce</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-300 min-h-screen">
+
+  <nav class="bg-slate-900/80 backdrop-blur border-b border-slate-800 sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold tracking-tight">
+        <span class="text-cyan-400">Net</span><span class="text-white">Sec</span><span class="text-emerald-400">Ace</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-400">
+        <a href="module1.html" class="hover:text-white transition">Module 1</a>
+        <a href="module2.html" class="hover:text-white transition">Module 2</a>
+        <a href="module3.html" class="hover:text-white transition">Module 3</a>
+        <a href="module4.html" class="hover:text-white transition">Module 4</a>
+        <a href="module5.html" class="text-emerald-400 font-semibold">Final Exam</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="bg-slate-900 border-b border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 py-10">
+      <div class="text-xs text-emerald-400 font-semibold mb-2 tracking-widest uppercase">Module 5 of 5 — Final Exam</div>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-white mb-3">Beginner Final Exam</h1>
+      <p class="text-slate-400 text-lg mb-6">40 questions covering everything from Modules 1-4. This is the real test — show what you've learned.</p>
+      <div class="flex flex-wrap items-center gap-6 text-sm text-slate-500">
+        <span>🏆 40 Questions</span>
+        <span>⏱ 45 Minute Timer</span>
+        <span>✅ 70% to Pass</span>
+        <span>📊 All Modules Covered</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="max-w-4xl mx-auto px-4 py-10">
+
+    <!-- Module Summary Cards -->
+    <div id="pre-exam-info">
+      <h2 class="text-xl font-bold text-white mb-4">What's Covered</h2>
+      <div class="grid md:grid-cols-2 gap-4 mb-8">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex gap-4">
+          <div class="w-10 h-10 bg-cyan-500/10 rounded-lg flex items-center justify-center text-xl shrink-0">🔐</div>
+          <div>
+            <div id="m1-status" class="text-xs font-semibold mb-1 text-slate-500">MODULE 1</div>
+            <div class="text-white font-semibold text-sm">What is Cybersecurity?</div>
+            <div class="text-slate-500 text-xs mt-1">CIA Triad, threats, vulnerabilities, risk, controls</div>
+          </div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex gap-4">
+          <div class="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center text-xl shrink-0">🌐</div>
+          <div>
+            <div id="m2-status" class="text-xs font-semibold mb-1 text-slate-500">MODULE 2</div>
+            <div class="text-white font-semibold text-sm">Networking Basics</div>
+            <div class="text-slate-500 text-xs mt-1">IP addresses, DNS, ports, protocols, OSI model</div>
+          </div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex gap-4">
+          <div class="w-10 h-10 bg-red-500/10 rounded-lg flex items-center justify-center text-xl shrink-0">☠️</div>
+          <div>
+            <div id="m3-status" class="text-xs font-semibold mb-1 text-slate-500">MODULE 3</div>
+            <div class="text-white font-semibold text-sm">Types of Threats</div>
+            <div class="text-slate-500 text-xs mt-1">Malware, social engineering, password attacks</div>
+          </div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5 flex gap-4">
+          <div class="w-10 h-10 bg-purple-500/10 rounded-lg flex items-center justify-center text-xl shrink-0">🛡️</div>
+          <div>
+            <div id="m4-status" class="text-xs font-semibold mb-1 text-slate-500">MODULE 4</div>
+            <div class="text-white font-semibold text-sm">Basic Security Concepts</div>
+            <div class="text-slate-500 text-xs mt-1">AAA, encryption, hashing, security principles</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Readiness Check -->
+      <div id="readiness-check" class="bg-slate-900 border border-slate-800 rounded-2xl p-6 mb-8">
+        <h3 class="text-white font-bold mb-4">Readiness Check</h3>
+        <div id="readiness-items" class="space-y-2 mb-4"></div>
+        <div id="readiness-message" class="text-sm text-slate-400"></div>
+      </div>
+
+      <div class="bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-6 mb-8">
+        <h3 class="text-white font-bold mb-3">Exam Rules</h3>
+        <div class="space-y-2 text-sm text-slate-400">
+          <div class="flex gap-2">⏱️ <span>45 minute timer starts when you click "Start Exam"</span></div>
+          <div class="flex gap-2">📝 <span>40 questions drawn from all 4 modules</span></div>
+          <div class="flex gap-2">💡 <span>Each question shows an explanation after you answer</span></div>
+          <div class="flex gap-2">✅ <span>Score 70% (28/40) or higher to pass the beginner path</span></div>
+          <div class="flex gap-2">🔄 <span>You can retake the exam as many times as you want</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Exam Quiz Container -->
+    <div id="module5-quiz"></div>
+
+  </div>
+
+  <footer class="border-t border-slate-800 text-center py-6 text-slate-600 text-sm">
+    <a href="module4.html" class="hover:text-slate-400 transition">← Module 4</a>
+    <span class="mx-3">|</span>
+    <a href="index.html" class="hover:text-slate-400 transition">Back to Home</a>
+  </footer>
+
+  <script src="js/progress.js"></script>
+  <script src="js/questions.js"></script>
+  <script src="js/quiz.js"></script>
+  <script>
+    // Check module completion status
+    const modules = [
+      { id: 'module1', label: 'Module 1 — What is Cybersecurity?', statusEl: 'm1-status' },
+      { id: 'module2', label: 'Module 2 — Networking Basics', statusEl: 'm2-status' },
+      { id: 'module3', label: 'Module 3 — Types of Threats', statusEl: 'm3-status' },
+      { id: 'module4', label: 'Module 4 — Basic Security Concepts', statusEl: 'm4-status' },
+    ];
+
+    let completedCount = 0;
+    const readinessItems = document.getElementById('readiness-items');
+
+    modules.forEach(m => {
+      const data = Progress.getModuleData(m.id);
+      const passed = data && data.passed;
+      if (passed) completedCount++;
+
+      // Update status label in card
+      const statusEl = document.getElementById(m.statusEl);
+      statusEl.textContent = passed ? `✅ ${m.id.toUpperCase().replace('MODULE', 'MODULE ')} — PASSED` : `${m.id.toUpperCase().replace('MODULE', 'MODULE ')}`;
+      statusEl.className = passed
+        ? 'text-xs font-semibold mb-1 text-emerald-400'
+        : 'text-xs font-semibold mb-1 text-slate-500';
+
+      // Readiness item
+      const item = document.createElement('div');
+      item.className = 'flex items-center gap-2 text-sm';
+      item.innerHTML = `
+        <span>${passed ? '✅' : '⬜'}</span>
+        <span class="${passed ? 'text-slate-300' : 'text-slate-500'}">${m.label}</span>
+        ${data ? `<span class="ml-auto text-xs ${passed ? 'text-emerald-400' : 'text-red-400'}">${Math.round((data.score/data.total)*100)}%</span>` : '<span class="ml-auto text-xs text-slate-600">Not attempted</span>'}
+      `;
+      readinessItems.appendChild(item);
+    });
+
+    const readinessMsg = document.getElementById('readiness-message');
+    if (completedCount === 4) {
+      readinessMsg.innerHTML = '<span class="text-emerald-400 font-semibold">✅ You have completed all 4 modules! You are ready for the final exam.</span>';
+    } else if (completedCount >= 2) {
+      readinessMsg.innerHTML = `<span class="text-yellow-400">⚠️ You've completed ${completedCount}/4 modules. We recommend finishing all modules first, but you can attempt the exam now.</span>`;
+    } else {
+      readinessMsg.innerHTML = `<span class="text-slate-500">💡 You've completed ${completedCount}/4 modules. Consider studying all modules before taking the final exam.</span>`;
+    }
+
+    // Initialize the final exam quiz
+    initQuiz('module5', 'module5-quiz', true);
+
+    // Override the quiz start to hide pre-exam info
+    const originalStart = quizInstance.start.bind(quizInstance);
+    quizInstance.start = function() {
+      document.getElementById('pre-exam-info').classList.add('hidden');
+      originalStart();
+    };
+  </script>
+</body>
+</html>
